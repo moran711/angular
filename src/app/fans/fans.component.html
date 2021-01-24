@@ -1,0 +1,22 @@
+<form [formGroup]="fansForm" class="add-appeal" (ngSubmit)="submit()">
+  <mat-form-field class="m-10">
+    <mat-label>Your comment</mat-label>
+    <textarea matInput formControlName="comment"></textarea>
+  </mat-form-field>
+  <button mat-raised-button  [disabled]="!fansForm.valid" color="primary" class="p-10" type="submit">Add appeal</button>
+</form>
+<h2 class="text-center">
+  Appeal of fans
+</h2>
+<div class="appreal" *ngFor="let comment of comments">
+  <mat-card class="m-10">
+    <mat-card-content>
+      <p>
+        {{comment.text}}
+      </p>
+      <p>
+        {{comment.date | date : 'dd/MM/yyyy, hh:mm a'}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
